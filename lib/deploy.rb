@@ -58,6 +58,9 @@ end
 
 def getcurrentappversion(application)
 	puts "Reading version of #{application} from /var/lib/tomcat6/webapps/#{application}/META-INF/MANIFEST.MF"
+	filename = "/var/lib/tomcat6/webapps/#{application}/META-INF/MANIFEST.MF"
+	txt = File.open(filename)
+	puts txt.read()
 end
 
 def delete(filename)
@@ -72,3 +75,4 @@ cleanupapp("hnportal")
 queryavailableapp("hnportal")
 fetchapp("hnportal.war","http://uukd3v-bldapp01.i3-dev.net:8080/artifactory/api/storage/libs-releases-local/com/uhc/hnportal/1.4.1/hnportal-1.4.1.war")
 getcurrentappversion("hnportal")	
+
